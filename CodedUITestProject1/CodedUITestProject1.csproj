@@ -38,8 +38,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AllureCSharpCommons">
+      <HintPath>..\..\..\allure\allure-mstest-adapter\MSTestAllureAdapter\bin\Debug\AllureCSharpCommons.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\..\..\allure\allure-mstest-adapter\MSTestAllureAdapter\bin\Debug\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <Private>False</Private>
+    </Reference>
+    <Reference Include="MSTestAllureAdapter">
+      <HintPath>..\..\..\allure\allure-mstest-adapter\MSTestAllureAdapter\bin\Debug\MSTestAllureAdapter.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />

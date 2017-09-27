@@ -1,9 +1,13 @@
-﻿using System.Windows.Input;
+﻿using System;
+using System.Windows.Input;
 using System.Windows.Forms;
 using System.Drawing;
 using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Microsoft.VisualStudio.TestTools.UITesting.WinControls;
+using MSTestAllureAdapter;
+using System.Collections.Generic;
+using System.IO;
 
 namespace CodedUITestProject1
 {
@@ -17,6 +21,23 @@ namespace CodedUITestProject1
         {
         }
 
+        [ClassCleanup]
+        public static void GatherTestResults()
+        {
+            AllureAdapter adapter = new AllureAdapter();
+            TRXParser parser = new TRXParser();
+            try
+            {
+                IEnumerable<MSTestResult> testresults = parser.GetTestResults(Directory.GetCurrentDirectory()+"\\Testresults");
+                adapter.GenerateTestResults(testresults, Directory.GetCurrentDirectory() + "\\results");
+            }
+            catch (Exception e)
+            {
+                throw new Exception(message: e.Message);
+            }
+
+        }
+
         [TestMethod]
         public void CodedUITestMethod1()
         {          
@@ -27,8 +48,7 @@ namespace CodedUITestProject1
 
             UIMap1Classes.UIFileExplorerWindow window = new UIMap1Classes.UIFileExplorerWindow();
             window.SetFocus();
-            Mouse.StartDragging(window, new Point(0, 0), MouseButtons.Left, ModifierKeys.None);
-            Mouse.StopDragging(window);
+            Assert.IsTrue(window.Exists);
 
             UIMap1Classes.UIFileExplorerTitleBar titleBar = new UIMap1Classes.UIFileExplorerTitleBar(window);
             WinButton buttonClose = titleBar.UICloseButton;
