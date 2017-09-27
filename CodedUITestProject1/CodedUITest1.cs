@@ -34,7 +34,7 @@ namespace CodedUITestProject1
             //String currentDir = Directory.GetCurrentDirectory();
             Console.WriteLine(testResultDir);
             Directory.CreateDirectory(testResultDir + "\\results");
-            string[] reportFiles = Directory.GetFiles(testResultDir+"\\TestResults", "*.trx");
+            string[] reportFiles = Directory.GetFiles("\\TestResults", "*.trx");
 
             try
             {
@@ -42,7 +42,7 @@ namespace CodedUITestProject1
                 for (int i = 0; i < reportFiles.Length; i++)
                 {
                     IEnumerable<MSTestResult> testresults = parser.GetTestResults(reportFiles[i]);
-                    adapter.GenerateTestResults(testresults, testResultDir+"\\results");
+                    adapter.GenerateTestResults(testresults, "\\results");
                 }
             }
             catch (Exception e)
