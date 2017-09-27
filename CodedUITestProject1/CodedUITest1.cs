@@ -17,30 +17,46 @@ namespace CodedUITestProject1
     [CodedUITest]
     public class CodedUITest1
     {
+        public static String testResultDir;
         public CodedUITest1()
         {
         }
-
+        [TestInitialize]
+        public void Init()
+        {
+            testResultDir = TestContext.TestDir;            
+        }
         [ClassCleanup]
         public static void GatherTestResults()
-        {
+        {            
             AllureAdapter adapter = new AllureAdapter();
             TRXParser parser = new TRXParser();
+            //String currentDir = Directory.GetCurrentDirectory();
+            Console.WriteLine(testResultDir);
+            Directory.CreateDirectory(testResultDir + "\\results");
+            string[] reportFiles = Directory.GetFiles(testResultDir, "*.trx");
+
             try
             {
-                IEnumerable<MSTestResult> testresults = parser.GetTestResults(Directory.GetCurrentDirectory()+"\\Testresults");
-                adapter.GenerateTestResults(testresults, Directory.GetCurrentDirectory() + "\\results");
+                if (reportFiles.Length == 0) throw new Exception(message: testResultDir+" No report files");
+                for (int i = 0; i < reportFiles.Length; i++)
+                {
+                    IEnumerable<MSTestResult> testresults = parser.GetTestResults(reportFiles[i]);
+                    adapter.GenerateTestResults(testresults, testResultDir+"\\results");
+                }
             }
             catch (Exception e)
             {
                 throw new Exception(message: e.Message);
             }
+            Console.WriteLine("Finished");
 
         }
 
         [TestMethod]
         public void CodedUITestMethod1()
-        {          
+        {
+            Console.WriteLine(Directory.GetCurrentDirectory());
             UIMap2Classes.UIRunningapplicationsWindow runAppWindow = new UIMap2Classes.UIRunningapplicationsWindow();
             UIMap2Classes.UIRunningapplicationsToolBar runningToolbar = runAppWindow.UIRunningapplicationsToolBar;
             WinButton fileExplorerButton = runningToolbar.UIFileExplorerButton;
@@ -89,7 +105,7 @@ namespace CodedUITestProject1
             {
                 testContextInstance = value;
             }
-        }
+        }        
         private TestContext testContextInstance;
 
         public UIMap UIMap
