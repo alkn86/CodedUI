@@ -24,7 +24,7 @@ namespace CodedUITestProject1
         [TestInitialize]
         public void Init()
         {
-            testResultDir = TestContext.DeploymentDirectory;            
+            testResultDir = Directory.GetCurrentDirectory();            
         }
         [ClassCleanup]
         public static void GatherTestResults()
@@ -34,7 +34,7 @@ namespace CodedUITestProject1
             //String currentDir = Directory.GetCurrentDirectory();
             Console.WriteLine(testResultDir);
             Directory.CreateDirectory(testResultDir + "\\results");
-            string[] reportFiles = Directory.GetFiles(testResultDir, "*.trx");
+            string[] reportFiles = Directory.GetFiles(testResultDir+"\\TestResults", "*.trx");
 
             try
             {
