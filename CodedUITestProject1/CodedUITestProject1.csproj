@@ -40,18 +40,18 @@
   <ItemGroup>
     <Reference Include="AllureCSharpCommons, Version=0.1.0.21853, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\allure\allure-mstest-adapter\MSTestAllureAdapter\bin\Debug\AllureCSharpCommons.dll</HintPath>
+      <HintPath>.\AllureCSharpCommons.dll</HintPath>
     </Reference>
     <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\allure\allure-mstest-adapter\MSTestAllureAdapter\bin\Debug\log4net.dll</HintPath>
+      <HintPath>.\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <Private>False</Private>
     </Reference>
     <Reference Include="MSTestAllureAdapter, Version=1.0.6478.21866, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\allure\allure-mstest-adapter\MSTestAllureAdapter\bin\Debug\MSTestAllureAdapter.dll</HintPath>
+      <HintPath>.\MSTestAllureAdapter.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -85,9 +85,6 @@
     <None Include="UIMap1.uitest" />
     <None Include="UIMap2.uitest" />
     <None Include="UIMap3.uitest" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AllureCSharpCommons.dll">
