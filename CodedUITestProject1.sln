@@ -7,7 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodedUITestProject1", "Code
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4B0D2ECC-E62C-48B4-8945-4F0C81C7D5F0}"
 	ProjectSection(SolutionItems) = preProject
+		CodedUITestProject1\bin\Debug\AllureCSharpCommons.dll = CodedUITestProject1\bin\Debug\AllureCSharpCommons.dll
 		Jenkinsfile.txt = Jenkinsfile.txt
+		CodedUITestProject1\bin\Debug\log4net.dll = CodedUITestProject1\bin\Debug\log4net.dll
+		CodedUITestProject1\bin\Debug\MSTestAllureAdapter.dll = CodedUITestProject1\bin\Debug\MSTestAllureAdapter.dll
 	EndProjectSection
 EndProject
 Global
