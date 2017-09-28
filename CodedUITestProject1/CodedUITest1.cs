@@ -51,6 +51,7 @@ namespace CodedUITestProject1
             }
             catch (Exception e)
             {
+                Console.WriteLine("Finished" + testResultDir);
                 throw new Exception(message: e.Message);
             }
             Console.WriteLine("Finished");
