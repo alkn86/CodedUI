@@ -31,7 +31,7 @@ namespace CodedUITestProject1
             testResultDir = dir;
 
         }
-        [ClassCleanup]
+        [AssemblyCleanup]
         public static void GatherTestResults()
         {
             AllureAdapter adapter = new AllureAdapter();
