@@ -73,6 +73,42 @@ namespace CodedUITestProject1
             Mouse.Click(buttonClose);
         }
 
+        [TestMethod]
+        public void CodedUITestMethod2()
+        {
+            Console.WriteLine(Directory.GetCurrentDirectory());
+            UIMap2Classes.UIRunningapplicationsWindow runAppWindow = new UIMap2Classes.UIRunningapplicationsWindow();
+            UIMap2Classes.UIRunningapplicationsToolBar runningToolbar = runAppWindow.UIRunningapplicationsToolBar;
+            WinButton fileExplorerButton = runningToolbar.UIFileExplorerButton;
+            Mouse.Click(fileExplorerButton);
+
+            UIMap1Classes.UIFileExplorerWindow window = new UIMap1Classes.UIFileExplorerWindow();
+            window.SetFocus();
+            Assert.IsTrue(window.Exists);
+
+            UIMap1Classes.UIFileExplorerTitleBar titleBar = new UIMap1Classes.UIFileExplorerTitleBar(window);
+            WinButton buttonClose = titleBar.UICloseButton;
+            Mouse.Click(buttonClose);
+        }
+
+        [TestMethod]
+        public void CodedUITestMethod3()
+        {
+            Console.WriteLine(Directory.GetCurrentDirectory());
+            UIMap2Classes.UIRunningapplicationsWindow runAppWindow = new UIMap2Classes.UIRunningapplicationsWindow();
+            UIMap2Classes.UIRunningapplicationsToolBar runningToolbar = runAppWindow.UIRunningapplicationsToolBar;
+            WinButton fileExplorerButton = runningToolbar.UIFileExplorerButton;
+            Mouse.Click(fileExplorerButton);
+
+            UIMap1Classes.UIFileExplorerWindow window = new UIMap1Classes.UIFileExplorerWindow();
+            window.SetFocus();
+            Assert.IsTrue(window.Exists);
+
+            UIMap1Classes.UIFileExplorerTitleBar titleBar = new UIMap1Classes.UIFileExplorerTitleBar(window);
+            WinButton buttonClose = titleBar.UICloseButton;
+            Mouse.Click(buttonClose);
+        }
+
         #region Additional test attributes
 
         // You can use the following additional attributes as you write your tests:
