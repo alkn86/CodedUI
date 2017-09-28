@@ -40,7 +40,7 @@ namespace CodedUITestProject1
             Directory.CreateDirectory(testResultDir + "\\results");
             string[] reportFiles = Directory.GetFiles(testResultDir, "*.trx");
 
-            if (reportFiles.Length == 0) throw new Exception(message: testResultDir + " No report files");
+            if (reportFiles.Length == 0) throw new Exception(message: testResultDir + " No report files in directory/n Found files:/n"+reportFiles.Length);
             for (int i = 0; i < reportFiles.Length; i++)
             {
                 IEnumerable<MSTestResult> testresults = parser.GetTestResults(reportFiles[i]);
