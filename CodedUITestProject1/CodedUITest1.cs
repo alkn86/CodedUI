@@ -25,7 +25,7 @@ namespace CodedUITestProject1
         [TestInitialize]
         public void Init()
         {
-            testResultDir = TestContext.TestResultsDirectory;      
+            testResultDir = TestContext.TestRunResultsDirectory;      
             
         }
         [ClassCleanup]
