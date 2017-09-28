@@ -28,6 +28,7 @@ namespace CodedUITestProject1
             testResultDir = TestContext.TestDir;
             string dir = Path.GetDirectoryName(TestContext.TestDir);
             testResultDir.Replace(dir, String.Empty);
+            testResultDir = dir;
             
         }
         [ClassCleanup]
