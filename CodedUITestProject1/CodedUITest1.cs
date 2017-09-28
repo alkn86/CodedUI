@@ -9,6 +9,7 @@ using MSTestAllureAdapter;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
+using System.Threading;
 
 namespace CodedUITestProject1
 {
@@ -39,7 +40,7 @@ namespace CodedUITestProject1
             Console.WriteLine(testResultDir);
             Directory.CreateDirectory(testResultDir + "\\results");
             string[] reportFiles = Directory.GetFiles(testResultDir, "*.trx");
-
+            if (reportFiles.Length == 0) Thread.Sleep(10000);
             if (reportFiles.Length == 0) throw new Exception(message: testResultDir + " No report files in directory/n Found files:/n"+reportFiles.Length);
             for (int i = 0; i < reportFiles.Length; i++)
             {
