@@ -22,10 +22,12 @@ namespace CodedUITestProject1
         public CodedUITest1()
         {
         }
-        [TestInitialize]
+        [ClassInitialize]
         public void Init()
         {
-            testResultDir = TestContext.TestDir+"\\..\\";      
+            testResultDir = TestContext.TestDir;
+            string dir = Path.GetDirectoryName(TestContext.TestDir);
+            testResultDir.Replace(dir, String.Empty);
             
         }
         [ClassCleanup]
@@ -33,7 +35,6 @@ namespace CodedUITestProject1
         {            
             AllureAdapter adapter = new AllureAdapter();
             TRXParser parser = new TRXParser();
-            String currentDir = Directory.GetCurrentDirectory();
             Console.WriteLine(testResultDir);
             Directory.CreateDirectory(testResultDir + "\\results");
             string[] reportFiles = Directory.GetFiles(testResultDir, "*.trx");
