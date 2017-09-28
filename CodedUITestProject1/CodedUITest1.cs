@@ -25,7 +25,8 @@ namespace CodedUITestProject1
         [TestInitialize]
         public void Init()
         {
-            testResultDir = TestContext.TestResultsDirectory;          
+            testResultDir = TestContext.TestResultsDirectory;
+            
         }
         [ClassCleanup]
         public static void GatherTestResults()
@@ -34,8 +35,8 @@ namespace CodedUITestProject1
             TRXParser parser = new TRXParser();
             //String currentDir = Directory.GetCurrentDirectory();
             Console.WriteLine(testResultDir);
-            Directory.CreateDirectory(testResultDir + "\\results");
-            string[] reportFiles = Directory.GetFiles(testResultDir, "*.trx");
+            Directory.CreateDirectory(testResultDir + "\\..\\..\\..\\results");
+            string[] reportFiles = Directory.GetFiles(testResultDir+"\\..\\..\\..\\", "*.trx");
 
             try
             {
