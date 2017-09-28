@@ -35,7 +35,7 @@ namespace CodedUITestProject1
             //String currentDir = Directory.GetCurrentDirectory();
             Console.WriteLine(testResultDir);
             Directory.CreateDirectory(testResultDir + "\\results");
-            string[] reportFiles = Directory.GetFiles("\\TestResults", "*.trx");
+            string[] reportFiles = Directory.GetFiles(testResultDir + "\\TestResults", "*.trx");
 
             try
             {
