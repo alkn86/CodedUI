@@ -29,34 +29,27 @@ namespace CodedUITestProject1
             string dir = Path.GetDirectoryName(TestContext.TestDir);
             testResultDir.Replace(dir, String.Empty);
             testResultDir = dir;
-            
+
         }
         [ClassCleanup]
         public static void GatherTestResults()
-        {            
+        {
             AllureAdapter adapter = new AllureAdapter();
             TRXParser parser = new TRXParser();
             Console.WriteLine(testResultDir);
             Directory.CreateDirectory(testResultDir + "\\results");
             string[] reportFiles = Directory.GetFiles(testResultDir, "*.trx");
 
-            try
+            if (reportFiles.Length == 0) throw new Exception(message: testResultDir + " No report files");
+            for (int i = 0; i < reportFiles.Length; i++)
             {
-                if (reportFiles.Length == 0) throw new Exception(message: testResultDir+" No report files");
-                for (int i = 0; i < reportFiles.Length; i++)
-                {
-                    IEnumerable<MSTestResult> testresults = parser.GetTestResults(reportFiles[i]);                    
-                    adapter.GenerateTestResults(testresults, testResultDir + "\\results");
-                }
+                IEnumerable<MSTestResult> testresults = parser.GetTestResults(reportFiles[i]);
+                adapter.GenerateTestResults(testresults, testResultDir + "\\results");
             }
-            catch (Exception)            {
-                
-                Exception ex =  new Exception(message: testResultDir);
-                throw ex;
-            }
-            Console.WriteLine("Finished");
-
         }
+
+
+
 
         [TestMethod]
         public void CodedUITestMethod1()
@@ -146,7 +139,7 @@ namespace CodedUITestProject1
             {
                 testContextInstance = value;
             }
-        }        
+        }
         private TestContext testContextInstance;
 
         public UIMap UIMap
