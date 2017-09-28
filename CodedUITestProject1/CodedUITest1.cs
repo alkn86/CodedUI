@@ -49,9 +49,9 @@ namespace CodedUITestProject1
                     adapter.GenerateTestResults(testresults, testResultDir + "\\results");
                 }
             }
-            catch (Exception e)            {
+            catch (Exception)            {
                 
-                Exception ex =  new Exception(message: e.Message);
+                Exception ex =  new Exception(message: testResultDir);
                 throw ex;
             }
             Console.WriteLine("Finished");
