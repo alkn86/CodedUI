@@ -22,7 +22,7 @@ namespace CodedUITestProject1
         public CodedUITest1()
         {
         }
-        [ClassInitialize]
+        [TestInitialize]
         public void Init()
         {
             testResultDir = TestContext.TestDir;
