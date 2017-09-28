@@ -25,7 +25,7 @@ namespace CodedUITestProject1
         [TestInitialize]
         public void Init()
         {
-            testResultDir = TestContext.ResultsDirectory;      
+            testResultDir = TestContext.TestDir+"\\..\\";      
             
         }
         [ClassCleanup]
@@ -33,7 +33,7 @@ namespace CodedUITestProject1
         {            
             AllureAdapter adapter = new AllureAdapter();
             TRXParser parser = new TRXParser();
-            //String currentDir = Directory.GetCurrentDirectory();
+            String currentDir = Directory.GetCurrentDirectory();
             Console.WriteLine(testResultDir);
             Directory.CreateDirectory(testResultDir + "\\results");
             string[] reportFiles = Directory.GetFiles(testResultDir, "*.trx");
@@ -43,8 +43,8 @@ namespace CodedUITestProject1
                 if (reportFiles.Length == 0) throw new Exception(message: testResultDir+" No report files");
                 for (int i = 0; i < reportFiles.Length; i++)
                 {
-                    IEnumerable<MSTestResult> testresults = parser.GetTestResults(reportFiles[i]);
-                    adapter.GenerateTestResults(testresults, "\\results");
+                    IEnumerable<MSTestResult> testresults = parser.GetTestResults(reportFiles[i]);                    
+                    adapter.GenerateTestResults(testresults, testResultDir + "\\results");
                 }
             }
             catch (Exception e)
