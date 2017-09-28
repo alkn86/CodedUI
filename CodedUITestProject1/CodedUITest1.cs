@@ -23,8 +23,7 @@ namespace CodedUITestProject1
         }
         [TestInitialize]
         public void Init()
-        {
-            Directory.SetCurrentDirectory("\\out\\");
+        {            
             testResultDir = Directory.GetCurrentDirectory();            
         }
         [ClassCleanup]
