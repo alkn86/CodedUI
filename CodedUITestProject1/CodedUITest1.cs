@@ -8,6 +8,7 @@ using Microsoft.VisualStudio.TestTools.UITesting.WinControls;
 using MSTestAllureAdapter;
 using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
 
 namespace CodedUITestProject1
 {
@@ -24,8 +25,7 @@ namespace CodedUITestProject1
         [TestInitialize]
         public void Init()
         {            
-            testResultDir = Directory.GetCurrentDirectory();
-            Console.WriteLine(testResultDir);
+            testResultDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);            
         }
         [ClassCleanup]
         public static void GatherTestResults()
